@@ -4,11 +4,10 @@ using namespace std;
 /*
     Find more details [here](https://cp-algorithms.com/data_structures/disjoint_set_union.html#union-by-size-rank)
 */
+template <class T> class DSU {
 
-class DSU {
-
-    unordered_map<int, int> parent;
-    unordered_map<int, int> size;
+    unordered_map<T, T> parent;
+    unordered_map<T, int> size;
 
     public:
         void clear() {
@@ -16,7 +15,7 @@ class DSU {
             size.clear();
         }
 
-        int findParent(int x) {
+        T findParent(T x) {
             if (parent.find(x) == parent.end()) {
                 parent[x] = x;
                 size[x] = 1;
@@ -27,7 +26,7 @@ class DSU {
             return parent[x] = findParent(parent[x]);
         }
 
-        bool performUnion(int x, int y) {
+        bool performUnion(T x, T y) {
             x = findParent(x);
             y = findParent(y);
 

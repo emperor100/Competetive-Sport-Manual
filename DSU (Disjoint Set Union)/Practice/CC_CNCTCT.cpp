@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-class DSU {
+template <class T> class DSU {
 
-    unordered_map<int, int> parent;
-    unordered_map<int, int> size;
+    unordered_map<T, T> parent;
+    unordered_map<T, int> size;
 
     public:
         void clear() {
@@ -11,7 +11,7 @@ class DSU {
             size.clear();
         }
 
-        int findParent(int x) {
+        T findParent(T x) {
             if (parent.find(x) == parent.end()) {
                 parent[x] = x;
                 size[x] = 1;
@@ -22,7 +22,7 @@ class DSU {
             return parent[x] = findParent(parent[x]);
         }
 
-        bool performUnion(int x, int y) {
+        bool performUnion(T x, T y) {
             x = findParent(x);
             y = findParent(y);
 
@@ -46,7 +46,7 @@ int main() {
 	cin>>test;
 
 	int n, A[111111] = {}, total = 0;
-	DSU d;
+	DSU<int> d;
 
 	while(test--) {
 
