@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+    Find more details [here](https://cp-algorithms.com/data_structures/disjoint_set_union.html#union-by-size-rank)
+*/
+
 class DSU {
 
     unordered_map<int, int> parent;
